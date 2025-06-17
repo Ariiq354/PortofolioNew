@@ -1,4 +1,5 @@
 ---
+const { pathname } = Astro.url;
 import { ClientRouter } from "astro:transitions";
 import Navbar from "@/components/navbar.astro";
 import "@/styles/global.css";
@@ -16,7 +17,7 @@ import "@/styles/starwind.css";
     <ClientRouter />
   </head>
   <body class="min-h-screen">
-    <Navbar />
+    <Navbar currentPath={pathname} />
     <slot />
   </body>
 </html>

@@ -1,0 +1,94 @@
+---
+import Button from "./starwind/button";
+
+const currentPath = Astro.url.pathname;
+
+const pathname = [
+  {
+    name: "home",
+    path: "/",
+  },
+  {
+    name: "resume",
+    path: "/resume",
+  },
+  {
+    name: "work",
+    path: "/work",
+  },
+  {
+    name: "contact",
+    path: "/contact",
+  },
+];
+---
+
+<header class="py-8 xl:py-12">
+  <div class="container mx-auto flex items-center justify-between">
+    <a href="/">
+      <h1 class="text-4xl font-semibold">
+        Ariiq<span class="text-primary">.</span>
+      </h1>
+    </a>
+
+    <!-- Desktop -->
+    <div class="hidden items-center gap-8 xl:flex">
+      <nav class="flex gap-8">
+        {
+          pathname.map((item) => (
+            <a
+              href={item.path}
+              class={
+                currentPath === item.path
+                  ? "font-medium capitalize transition-all hover:text-primary border-b-2 border-primary text-primary"
+                  : "font-medium capitalize transition-all hover:text-primary"
+              }
+            >
+              {item.name}
+            </a>
+          ))
+        }
+      </nav>
+      <a href="/contact">
+        <Button
+          variant="primary"
+          class="rounded-full px-4 py-2 text-sm text-black h-10"
+        >
+          Hire me
+        </Button>
+      </a>
+    </div>
+
+    <!-- Mobile -->
+    <!-- <div class="xl:hidden">
+      <Sheet.Root open={isOpen} onOpenChange={(open) => (isOpen = open)}>
+        <Sheet.Trigger class="flex items-center justify-center" aria-label="menu">
+          <AlignRight class="text-[32px] text-accent" />
+        </Sheet.Trigger>
+        <Sheet.Content>
+          <Sheet.Header>
+            <Sheet.Title class="text-left text-white">
+              <h1 class="text-lg font-semibold">
+                Ariiq<span class="text-accent">.</span>
+              </h1>
+            </Sheet.Title>
+          </Sheet.Header>
+          <nav class="mt-4 flex flex-col items-center justify-center gap-2">
+            {#each pathname as item}
+              <a
+                href={item.path}
+                class={cn(
+                  ' capitalize transition-all hover:text-accent',
+                  $page.url.pathname === item.path ? 'border-b-2 border-accent text-accent' : ''
+                )}
+                on:click={() => (isOpen = false)}
+              >
+                {item.name}
+              </a>
+            {/each}
+          </nav>
+        </Sheet.Content>
+      </Sheet.Root>
+    </div> -->
+  </div>
+</header>

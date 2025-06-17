@@ -1,0 +1,278 @@
+---
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from "@/components/starwind/tabs";
+import {
+  Tooltip,
+  TooltipTrigger,
+  TooltipContent,
+} from "@/components/starwind/tooltip";
+import Layout from "@/layouts/Layout.astro";
+import Html from "../assets/brand/Html.astro";
+import Css from "../assets/brand/Css.astro";
+import Javascript from "../assets/brand/Javascript.astro";
+import Nest from "../assets/brand/Nest.astro";
+import React from "../assets/brand/React.astro";
+import Vue from "../assets/brand/Vue.astro";
+import Nuxt from "../assets/brand/Nuxt.astro";
+import Tailwind from "../assets/brand/Tailwind.astro";
+import Svelte from "../assets/brand/Svelte.astro";
+import Next from "../assets/brand/Next.astro";
+import Python from "../assets/brand/Python.astro";
+
+const experience = [
+  {
+    time: "April 2025 - Now",
+    title: "Fullstack Developer",
+    company: "Sinar Sakti Internasional",
+  },
+  {
+    time: "Feb 2024 - May 2024",
+    title: "Fullstack Developer",
+    company: "CV. Berjuang Bersama Barokah",
+  },
+  {
+    time: "Oct 2023 - Jan 2024",
+    title: "Fullstack Developer",
+    company: "PT. Tirtaloka Nusantara",
+  },
+  {
+    time: "Jan 2023 - Mar 2023",
+    title: "PHP Developer",
+    company: "CV. Berjuang Bersama Barokah",
+  },
+];
+
+const education = [
+  {
+    time: "2021 - 2024",
+    title: "Information Technology",
+    school: "President University",
+  },
+  { time: "2019 - 2021", title: "Science", school: "SMAN 2 Cibinong" },
+];
+
+const skills = [
+  {
+    name: "Svelte",
+    svg: Svelte,
+  },
+  {
+    name: "Vue",
+    svg: Vue,
+  },
+  {
+    name: "React",
+    svg: React,
+  },
+  {
+    name: "Tailwind",
+    svg: Tailwind,
+  },
+  {
+    name: "NextJS",
+    svg: Next,
+  },
+  {
+    name: "Nuxt",
+    svg: Nuxt,
+  },
+  {
+    name: "Nest",
+    svg: Nest,
+  },
+  {
+    name: "Python",
+    svg: Python,
+  },
+];
+
+const info = [
+  { name: "Name", value: "Muhammad Ariiq A. Abdillah" },
+  { name: "Phone", value: "+62 896 0583 4601" },
+  { name: "Experience", value: "2 years" },
+  { name: "Nationality", value: "Indonesia" },
+  { name: "Email", value: "m.ariiq.abdillah@gmail.com" },
+  { name: "Language", value: "Indonesia, English" },
+];
+---
+
+<Layout>
+  <section class="flex min-h-[80vh] justify-center py-12 xl:py-0">
+    <div class="container mx-auto">
+      <Tabs defaultValue="experience" class="flex gap-[60px] h-[572px]">
+        <TabsList class="flex flex-col max-w-[380px] bg-black mx-auto gap-6">
+          <div
+            class="flex max-w-[380px] flex-col gap-[30px] text-center xl:text-left"
+          >
+            <h1 class="text-5xl text-white">Why Hire Me?</h1>
+            <p class="mx-auto text-white/60 xl:mx-0">
+              I have a proficiency in technologies and a passion to learn new
+              thing in every project. By hiring me, you will gain a comitted
+              partner focused on delivering high-quality results.
+            </p>
+          </div>
+          <TabsTrigger
+            value="experience"
+            class="w-full rounded-md data-[state=active]:bg-primary text-white bg-[#232329]"
+          >
+            Experience
+          </TabsTrigger>
+          <TabsTrigger
+            value="education"
+            class="w-full rounded-md data-[state=active]:bg-primary text-white bg-[#232329]"
+          >
+            Education
+          </TabsTrigger>
+          <TabsTrigger
+            value="skills"
+            class="w-full rounded-md data-[state=active]:bg-primary text-white bg-[#232329]"
+          >
+            Skills
+          </TabsTrigger>
+          <TabsTrigger
+            value="about"
+            class="w-full rounded-md data-[state=active]:bg-primary text-white bg-[#232329]"
+          >
+            About Me
+          </TabsTrigger>
+        </TabsList>
+        <TabsContent value="experience" class="w-full">
+          <div class="flex flex-col gap-[30px] text-center xl:text-left">
+            <h1 class="text-4xl font-bold">My Experience</h1>
+            <p class="mx-auto max-w-[600px] text-white/60 xl:mx-0">
+              Showcasing my experience, this section outlines my roles in the
+              company, demonstrating my experience in web development.
+            </p>
+            <div class="h-[400px]">
+              <ul class="grid grid-cols-1 gap-[30px] lg:grid-cols-2">
+                {
+                  experience.map((item) => (
+                    <li class="flex h-[184px] flex-col items-center justify-center gap-1 rounded-xl bg-[#232329] px-10 py-6 lg:items-start">
+                      <span class="text-primary">{item.time}</span>
+                      <h3 class="min-h-[60px] max-w-[260px] text-center text-xl lg:text-left">
+                        {item.title}
+                      </h3>
+                      <div class="flex items-center gap-3">
+                        <span class="aspect-square w-[6px] rounded-full bg-primary" />
+                        <p class="text-white/60">{item.company}</p>
+                      </div>
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+          </div>
+        </TabsContent>
+        <TabsContent value="education" class="w-full">
+          <div class="flex flex-col gap-[30px] text-center xl:text-left">
+            <h2 class="text-4xl font-bold">My Education</h2>
+            <p class="mx-auto max-w-[600px] text-white/60 xl:mx-0">
+              Detailing my academic background, this section highlights the
+              degrees I've earned.
+            </p>
+            <div class="h-[400px]">
+              <TabsContent value="education" class="w-full">
+                <div class="flex flex-col gap-[30px] text-center xl:text-left">
+                  <h2 class="text-4xl font-bold">My Education</h2>
+                  <p class="mx-auto max-w-[600px] text-white/60 xl:mx-0">
+                    Detailing my academic background, this section highlights
+                    the degrees I've earned.
+                  </p>
+                  <div class="h-[400px]">
+                    <ul class="grid grid-cols-1 gap-[30px] lg:grid-cols-2">
+                      {
+                        education.map((item) => (
+                          <li class="flex h-[184px] flex-col items-center justify-center gap-1 rounded-xl bg-[#232329] px-10 py-6 lg:items-start">
+                            <span class="text-primary">{item.time}</span>
+                            <h3 class="min-h-[60px] max-w-[260px] text-center text-xl lg:text-left">
+                              {item.title}
+                            </h3>
+                            <div class="flex items-center gap-3">
+                              <span class="aspect-square w-[6px] rounded-full bg-primary" />
+                              <p class="text-white/60">{item.school}</p>
+                            </div>
+                          </li>
+                        ))
+                      }
+                    </ul>
+                  </div>
+                </div>
+              </TabsContent>
+              <ul class="grid grid-cols-1 gap-[30px] lg:grid-cols-2">
+                {
+                  education.map((item) => (
+                    <li class="flex h-[184px] flex-col items-center justify-center gap-1 rounded-xl bg-[#232329] px-10 py-6 lg:items-start">
+                      <span class="text-primary">{item.time}</span>
+                      <h3 class="min-h-[60px] max-w-[260px] text-center text-xl lg:text-left">
+                        {item.title}
+                      </h3>
+                      <div class="flex items-center gap-3">
+                        <span class="aspect-square w-[6px] rounded-full bg-primary" />
+                        <p class="text-white/60">{item.school}</p>
+                      </div>
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+          </div>
+        </TabsContent>
+        <TabsContent value="skills" class="w-full">
+          <div class="flex flex-col gap-[30px] text-center xl:text-left h-full">
+            <h2 class="text-4xl font-bold">Skills</h2>
+            <p class="mx-auto max-w-[600px] text-white/60 xl:mx-0">
+              A list of my technical proficiencies, showcasing the tools and
+              technologies I use to deliver a website.
+            </p>
+            <div>
+              <ul
+                class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:gap-[30px]"
+              >
+                {
+                  skills.map((item) => (
+                    <Tooltip
+                      openDelay={100}
+                      class="group bg-[#232329] p-6 text-white"
+                    >
+                      <TooltipTrigger>
+                        <div class="text-sm transition-all duration-300 group-hover:text-primary">
+                          <item.svg />
+                        </div>
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p>{item.name}</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  ))
+                }
+              </ul>
+            </div>
+          </div>
+        </TabsContent>
+        <TabsContent value="about" class="w-full">
+          <div class="flex flex-col gap-[30px] text-center xl:text-left">
+            <h2 class="text-4xl font-bold">About Me</h2>
+            <p class="mx-auto max-w-[600px] text-white/60 xl:mx-0">
+              A brief introduction to who I am as a person, including my contact
+              details.
+            </p>
+            <ul class="mx-auto grid grid-cols-1 gap-y-6 xl:mx-0 xl:grid-cols-2">
+              {
+                info.map((item) => (
+                  <li class="flex items-center justify-center gap-4 xl:justify-start">
+                    <span class="text-white/60">{item.name}</span>
+                    <span class="text-lg">{item.value}</span>
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+        </TabsContent>
+      </Tabs>
+    </div>
+  </section>
+</Layout>

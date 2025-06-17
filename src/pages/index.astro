@@ -1,8 +1,92 @@
 ---
+import Button from "@/components/starwind/button";
+import Download from "../assets/Download.astro";
+import Github from "../assets/Github.astro";
+import Linkedin from "../assets/Linkedin.astro";
 import Layout from "../layouts/Layout.astro";
-import "../styles/global.css";
 ---
 
 <Layout>
-  <h1 class="text-3xl font-bold underline">Hello world!</h1>
+  <section class="h-full">
+    <div class="container mx-auto h-full">
+      <div
+        class="flex flex-col items-center justify-between xl:flex-row xl:pb-24 xl:pt-8"
+      >
+        <div class="order-2 text-center xl:order-none xl:text-left">
+          <span class="text-xl">Fullstack Developer</span>
+          <h1
+            class="mb-6 text-[48px] font-semibold leading-[1.1] xl:text-[80px]"
+          >
+            Hello I'm <br />
+            <span class="text-primary">Muhammad Ariiq</span>
+          </h1>
+          <p class="mb-9 max-w-[500px] text-white/80">
+            I'm a Fullstack Developer with passion in web design. I am
+            proficient in various frontend framework and technologies.
+          </p>
+          <div class="flex flex-col items-center gap-8 xl:flex-row">
+            <a href="/CV.pdf" download="CV.pdf">
+              <Button
+                variant="outline"
+                class="flex items-center gap-2 rounded-full uppercase border-primary text-primary hover:bg-primary hover:text-black"
+              >
+                Download CV
+                <Download size="20" />
+              </Button>
+            </a>
+            <div class="mb-8 xl:mb-0">
+              <div class="flex gap-6">
+                <a
+                  href="https://github.com/Ariiq354"
+                  aria-label="github"
+                  class="flex items-center justify-center rounded-full border border-primary p-2 text-primary transition-all duration-300 hover:bg-primary hover:text-black"
+                >
+                  <Github size={20} />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/muhammadariiq"
+                  target="_blank"
+                  aria-label="linkedin"
+                  class="flex items-center justify-center rounded-full border border-primary p-2 text-primary transition-all duration-300 hover:bg-primary hover:text-black"
+                >
+                  <Linkedin size={20} />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Photo -->
+        <div class="order-1 mb-8 xl:order-none xl:mb-0">
+          <div class="relative flex h-full w-full items-center justify-center">
+            <div
+              class="absolute flex aspect-square w-[274px] items-center justify-center overflow-hidden rounded-full xl:w-[470px]"
+            >
+              <img
+                src="/fotoProfil.webp"
+                alt="Profile"
+                width="963"
+                height="1280"
+              />
+            </div>
+            <svg
+              class="h-[300px] w-[300px] animate-[spin_25s_linear_infinite] xl:h-[506px] xl:w-[506px]"
+              fill="transparent"
+              viewBox="0 0 506 506"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle
+                cx="253"
+                cy="253"
+                r="250"
+                class="stroke-primary"
+                stroke-width="4"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-dasharray="24 12 2 20"></circle>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </Layout>

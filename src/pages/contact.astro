@@ -1,0 +1,97 @@
+---
+import Phone from "../assets/Phone.astro";
+import Mail from "../assets/Mail.astro";
+import House from "../assets/House.astro";
+import Layout from "../layouts/Layout.astro";
+import Button from "@/components/starwind/button";
+
+const info = [
+  {
+    icon: Phone,
+    title: "Phone",
+    description: "+62 896 0583 4601",
+  },
+  {
+    icon: Mail,
+    title: "Email",
+    description: "m.ariiq.abdillah@gmail.com",
+  },
+  {
+    icon: House,
+    title: "Address",
+    description: "Cakung, Jakarta Timur, DKI Jakarta",
+  },
+];
+---
+
+<Layout>
+  <section class="py-6">
+    <div class="container mx-auto">
+      <div class="flex flex-col gap-[30px] xl:flex-row">
+        <!-- Form Section -->
+        <div class="order-2 xl:order-none xl:w-[54%]">
+          <form class="flex flex-col gap-6 rounded-xl bg-[#27272c] p-10">
+            <h3 class="text-4xl text-primary">Let's Work Together</h3>
+            <p class="text-white/60">
+              I'd love to hear from you! Whether you have a question, a project
+              in mind, or just want to say hello, feel free to get in touch.
+              I'll get back to you as soon as possible.
+            </p>
+
+            <div class="grid grid-cols-1 gap-6">
+              <input
+                name="name"
+                placeholder="Name"
+                class="bg-[#27272c] rounded-md focus:border-primary focus:ring focus:ring-primary focus:outline-none"
+              />
+
+              <input
+                name="email"
+                type="email"
+                placeholder="Email Address"
+                class="bg-[#27272c] rounded-md focus:border-primary focus:ring focus:ring-primary focus:outline-none"
+              />
+              <textarea
+                name="message"
+                rows="4"
+                placeholder="Message"
+                class="bg-[#27272c] rounded-md focus:border-primary focus:ring focus:ring-primary focus:outline-none"
+              ></textarea>
+            </div>
+
+            <Button
+              type="submit"
+              variant="primary"
+              class="max-w-40 rounded-full text-black"
+            >
+              Send Message
+            </Button>
+          </form>
+        </div>
+
+        <!-- Contact Info Section -->
+        <div
+          class="order-1 mb-8 flex flex-1 items-center xl:order-none xl:mb-0 xl:justify-end"
+        >
+          <ul class="flex flex-col gap-10">
+            {
+              info.map((item) => (
+                <li class="flex items-center gap-6">
+                  <div class="flex aspect-square w-14 items-center justify-center rounded-md bg-[#27272c] text-accent xl:w-[72px]">
+                    <div class="text-xl">
+                      <item.icon class="text-primary" />
+                    </div>
+                  </div>
+                  <div class="flex-1">
+                    <h3 class="text-white/60">{item.title}</h3>
+                    <p class="text-xl">{item.description}</p>
+                  </div>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,104 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const projects = [
+  {
+    title: "Puskesmas Kertasemaya",
+    link: "/kertasemaya.jpg",
+    time: "October 2023",
+    description:
+      "I created and lead the project for UPTD Puskesmas Kertasemaya's website. The website shows information about profile, services, news, etc. Users can also browse a gallery showcasing their activities, and contact details for communication. It also has admin management for managing the content.",
+    tech: "NextJS, TailwindCSS, React",
+  },
+  {
+    title: "Tabby Talks",
+    link: "/tabby.jpg",
+    time: "November 2023",
+    description:
+      "I created and lead the project for Tabby Talks website as a Study Project. The website is a PDF scanner and analyzer using AI. Users can interact with an AI Chatbot to ask about the document scanned.",
+    tech: "NextJS, TailwindCSS, OpenAI",
+  },
+  {
+    title: "Puskesmas Terisi",
+    link: "/terisi.jpg",
+    time: "December 2023",
+    description:
+      "I created and lead the project for UPTD Puskesmas Terisi's website. The website shows information about profile, services, news, etc. Users can also browse a gallery showcasing their activities, and contact details for communication. It also has admin management for managing the content.",
+    tech: "NextJS, TailwindCSS, React",
+  },
+  {
+    title: "PT. Anugrah Teknologi Kecerdasan Buatan",
+    link: "/ptatkb.jpg",
+    time: "April 2024",
+    description:
+      "I helped create the landing page for PT. Anugrah Teknologi Kecerdasan Buatan. It shows the company profile, including projects and team members.",
+    tech: "Astro, TailwindCSS, React",
+  },
+  {
+    title: "Keluarga Bahagia",
+    link: "/kb.jpg",
+    time: "May 2024",
+    description:
+      "I'm working on Keluarga Bahagia's website. It's a healthy parenting course site that sells seminar tickets and books. Users can get product access after signing in.",
+    tech: "Svelte, TailwindCSS",
+  },
+  {
+    title: "Eduaid",
+    link: "/eduaid.jpg",
+    time: "May 2024",
+    description:
+      "I created and led the project for EduAid. It's an educational site for schools and teachers with school management, AI chatbot, score scanning, and report maker.",
+    tech: "Svelte, Python, OpenAI",
+  },
+  {
+    title: "ERP UMKM Harijaya",
+    link: "/harijaya.jpg",
+    time: "May 2024",
+    description:
+      "I'm working on an ERP system for UMKM Harijaya. Features include debt & payment, stock management, buying/selling, and reporting.",
+    tech: "Svelte, TailwindCSS",
+  },
+];
+---
+
+<Layout>
+  <section class="w-full">
+    <div class="container mx-auto">
+      <div class="flex flex-col gap-4">
+        <h1 class="text-center text-4xl">My Projects</h1>
+        <p class="mb-12 text-center text-white/60">
+          A showcase of my projects that I have created
+        </p>
+        <ul class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          {
+            projects.map((item) => (
+              <li class="flex flex-col justify-between rounded-lg border-2 border-primary bg-[#232329] p-6">
+                <div class="flex flex-col gap-6">
+                  <span class="w-full rounded-sm">
+                    <img
+                      src={item.link}
+                      alt={item.title}
+                      class="rounded-sm border border-primary"
+                    />
+                  </span>
+                  <div>
+                    <h1 class="text-xl">{item.title}</h1>
+                    <p class="text-primary">{item.time}</p>
+                    <p class="mb-4 mt-2">{item.description}</p>
+                  </div>
+                </div>
+                <div>
+                  <hr class="border-white/60" />
+                  <div class="mt-2 flex items-center gap-3">
+                    <span class="aspect-square w-[6px] rounded-full bg-primary" />
+                    <p class="text-white/60">{item.tech}</p>
+                  </div>
+                </div>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </section>
+</Layout>

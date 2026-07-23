@@ -23,7 +23,7 @@ const pathname = [
 ];
 ---
 
-<header class="py-8 xl:py-12">
+<header class="py-8 xl:py-12 relative z-50">
   <div class="container mx-auto flex items-center justify-between">
     <a href="/">
       <h1 class="text-4xl font-semibold">
@@ -31,7 +31,7 @@ const pathname = [
       </h1>
     </a>
 
-    <!-- Desktop -->
+    <!-- Desktop Nav -->
     <div class="hidden items-center gap-8 xl:flex">
       <nav class="flex gap-8">
         {
@@ -40,8 +40,8 @@ const pathname = [
               href={item.path}
               class={
                 currentPath === item.path
-                  ? "font-medium capitalize transition-all hover:text-primary border-b-2 border-primary text-primary"
-                  : "font-medium capitalize transition-all hover:text-primary"
+                  ? "font-medium capitalize transition-all duration-300 hover:text-primary border-b-2 border-primary text-primary pb-1 font-display"
+                  : "font-medium capitalize transition-all duration-300 hover:text-primary pb-1 font-display"
               }
             >
               {item.name}
@@ -52,11 +52,106 @@ const pathname = [
       <a href="/contact">
         <Button
           variant="primary"
-          class="rounded-full px-4 py-2 text-sm text-black h-10"
+          class="rounded-full px-5 py-2 text-sm text-black h-10 font-semibold hover:scale-105 transition-transform duration-300"
         >
           Hire me
         </Button>
       </a>
     </div>
+
+    <!-- Mobile Nav Toggle Button -->
+    <button
+      id="mobile-nav-toggle"
+      class="flex xl:hidden text-white hover:text-primary transition-colors focus:outline-none cursor-pointer"
+      aria-label="Toggle menu"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-8 h-8">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Drawer Overlay -->
+  <div
+    id="mobile-menu-drawer"
+    class="fixed inset-0 bg-neutral-950/98 backdrop-blur-md z-50 transform translate-x-full transition-transform duration-300 ease-in-out xl:hidden flex flex-col justify-center items-center"
+  >
+    <!-- Close Button -->
+    <button
+      id="mobile-nav-close"
+      class="absolute top-8 right-6 text-white hover:text-primary transition-colors focus:outline-none cursor-pointer"
+      aria-label="Close menu"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-8 h-8">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+
+    <!-- Nav list inside drawer -->
+    <nav class="flex flex-col gap-8 text-center mb-12">
+      {
+        pathname.map((item) => (
+          <a
+            href={item.path}
+            class={
+              currentPath === item.path
+                ? "text-3xl font-semibold capitalize text-primary border-b-2 border-primary pb-1 font-display"
+                : "text-3xl font-semibold capitalize text-white hover:text-primary transition-colors duration-300 font-display"
+            }
+          >
+            {item.name}
+          </a>
+        ))
+      }
+    </nav>
+
+    <a href="/contact" id="mobile-nav-hire-link">
+      <Button
+        variant="primary"
+        class="rounded-full px-8 py-3 text-base text-black font-semibold hover:scale-105 transition-transform duration-300"
+      >
+        Hire me
+      </Button>
+    </a>
   </div>
 </header>
+
+<script>
+  function initMobileMenu() {
+    const toggleBtn = document.getElementById("mobile-nav-toggle");
+    const closeBtn = document.getElementById("mobile-nav-close");
+    const drawer = document.getElementById("mobile-menu-drawer");
+    const hireLink = document.getElementById("mobile-nav-hire-link");
+    const navLinks = drawer?.querySelectorAll("nav a");
+
+    if (!toggleBtn || !closeBtn || !drawer) return;
+
+    function openMenu() {
+      drawer.classList.remove("translate-x-full");
+      drawer.classList.add("translate-x-0");
+      document.body.style.overflow = "hidden"; // Prevent body scroll
+    }
+
+    function closeMenu() {
+      drawer.classList.remove("translate-x-0");
+      drawer.classList.add("translate-x-full");
+      document.body.style.overflow = ""; // Re-enable body scroll
+    }
+
+    toggleBtn.addEventListener("click", openMenu);
+    closeBtn.addEventListener("click", closeMenu);
+
+    // Close when clicking a nav link
+    navLinks?.forEach(link => {
+      link.addEventListener("click", closeMenu);
+    });
+
+    hireLink?.addEventListener("click", closeMenu);
+  }
+
+  // Run on initial load
+  initMobileMenu();
+
+  // Run on client routing swap
+  document.addEventListener("astro:after-swap", initMobileMenu);
+</script>

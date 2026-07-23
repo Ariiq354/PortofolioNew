@@ -2,103 +2,117 @@
 import Layout from "../layouts/Layout.astro";
 
 const projects = [
-  {
-    title: "Puskesmas Kertasemaya",
-    link: "/kertasemaya.webp",
-    time: "October 2023",
-    description:
-      "I created and lead the project for UPTD Puskesmas Kertasemaya's website. The website shows information about profile, services, news, etc. Users can also browse a gallery showcasing their activities, and contact details for communication. It also has admin management for managing the content.",
-    tech: "NextJS, TailwindCSS, React",
-  },
-  {
-    title: "Tabby Talks",
-    link: "/tabby.webp",
-    time: "November 2023",
-    description:
-      "I created and lead the project for Tabby Talks website as a Study Project. The website is a PDF scanner and analyzer using AI. Users can interact with an AI Chatbot to ask about the document scanned.",
-    tech: "NextJS, TailwindCSS, OpenAI",
-  },
-  {
-    title: "Puskesmas Terisi",
-    link: "/terisi.webp",
-    time: "December 2023",
-    description:
-      "I created and lead the project for UPTD Puskesmas Terisi's website. The website shows information about profile, services, news, etc. Users can also browse a gallery showcasing their activities, and contact details for communication. It also has admin management for managing the content.",
-    tech: "NextJS, TailwindCSS, React",
-  },
-  {
-    title: "PT. Anugrah Teknologi Kecerdasan Buatan",
-    link: "/ptatkb.webp",
-    time: "April 2024",
-    description:
-      "I helped create the landing page for PT. Anugrah Teknologi Kecerdasan Buatan. It shows the company profile, including projects and team members.",
-    tech: "Astro, TailwindCSS, React",
-  },
-  {
-    title: "Keluarga Bahagia",
-    link: "/kb.webp",
-    time: "May 2024",
-    description:
-      "I'm working on Keluarga Bahagia's website. It's a healthy parenting course site that sells seminar tickets and books. Users can get product access after signing in.",
-    tech: "Svelte, TailwindCSS",
-  },
-  {
-    title: "Eduaid",
-    link: "/eduaid.webp",
-    time: "May 2024",
-    description:
-      "I created and led the project for EduAid. It's an educational site for schools and teachers with school management, AI chatbot, score scanning, and report maker.",
-    tech: "Svelte, Python, OpenAI",
-  },
-  {
-    title: "ERP UMKM Harijaya",
-    link: "/harijaya.webp",
-    time: "May 2024",
-    description:
-      "I'm working on an ERP system for UMKM Harijaya. Features include debt & payment, stock management, buying/selling, and reporting.",
-    tech: "Svelte, TailwindCSS",
-  },
+    {
+        title: "Puskesmas Kertasemaya",
+        link: "/kertasemaya.webp",
+        time: "October 2023",
+        description:
+            "I created and lead the project for UPTD Puskesmas Kertasemaya's website. The website shows information about profile, services, news, etc. Users can also browse a gallery showcasing their activities, and contact details for communication. It also has admin management for managing the content.",
+        tech: "NextJS, TailwindCSS, React",
+    },
+    {
+        title: "Tabby Talks",
+        link: "/tabby.webp",
+        time: "November 2023",
+        description:
+            "I created and lead the project for Tabby Talks website as a Study Project. The website is a PDF scanner and analyzer using AI. Users can interact with an AI Chatbot to ask about the document scanned.",
+        tech: "NextJS, TailwindCSS, OpenAI",
+    },
+    {
+        title: "Puskesmas Terisi",
+        link: "/terisi.webp",
+        time: "December 2023",
+        description:
+            "I created and lead the project for UPTD Puskesmas Terisi's website. The website shows information about profile, services, news, etc. Users can also browse a gallery showcasing their activities, and contact details for communication. It also has admin management for managing the content.",
+        tech: "NextJS, TailwindCSS, React",
+    },
+    {
+        title: "PT. Anugrah Teknologi Kecerdasan Buatan",
+        link: "/ptatkb.webp",
+        time: "April 2024",
+        description:
+            "I helped create the landing page for PT. Anugrah Teknologi Kecerdasan Buatan. It shows the company profile, including projects and team members.",
+        tech: "Astro, TailwindCSS, React",
+    },
+    {
+        title: "Keluarga Bahagia",
+        link: "/kb.webp",
+        time: "May 2024",
+        description:
+            "I'm working on Keluarga Bahagia's website. It's a healthy parenting course site that sells seminar tickets and books. Users can get product access after signing in.",
+        tech: "Svelte, TailwindCSS",
+    },
+    {
+        title: "Eduaid",
+        link: "/eduaid.webp",
+        time: "May 2024",
+        description:
+            "I created and led the project for EduAid. It's an educational site for schools and teachers with school management, AI chatbot, score scanning, and report maker.",
+        tech: "Svelte, Python, OpenAI",
+    },
+    {
+        title: "ERP UMKM Harijaya",
+        link: "/harijaya.webp",
+        time: "May 2024",
+        description:
+            "I'm working on an ERP system for UMKM Harijaya. Features include debt & payment, stock management, buying/selling, and reporting.",
+        tech: "Svelte, TailwindCSS",
+    },
 ];
 ---
 
 <Layout pathname="/work">
-  <main class="w-full  pb-20">
-    <div class="container mx-auto ">
-      <div class="flex flex-col gap-4">
-        <h1 class="text-center text-4xl">My Projects</h1>
-        <p class="mb-12 text-center text-white/60">
-          A showcase of my projects that I have created
-        </p>
-        <ul class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {
-            projects.map((item) => (
-              <li class="flex flex-col justify-between rounded-lg border-2 border-primary bg-[#232329] p-6">
-                <div class="flex flex-col gap-6">
-                  <span class="w-full rounded-sm">
-                    <img
-                      src={item.link}
-                      alt={item.title}
-                      class="rounded-sm border border-primary"
-                    />
-                  </span>
-                  <div>
-                    <h1 class="text-xl">{item.title}</h1>
-                    <p class="text-primary">{item.time}</p>
-                    <p class="mb-4 mt-2">{item.description}</p>
-                  </div>
-                </div>
-                <div>
-                  <hr class="border-white/60" />
-                  <div class="mt-2 flex items-center gap-3">
-                    <span class="aspect-square w-[6px] rounded-full bg-primary" />
-                    <p class="text-white/60">{item.tech}</p>
-                  </div>
-                </div>
-              </li>
-            ))
-          }
-        </ul>
-      </div>
-    </div>
-  </main>
+    <main class="w-full py-12 xl:py-24 pb-20">
+        <div class="container mx-auto">
+            <div class="flex flex-col gap-4">
+                <h1 class="text-center text-5xl font-bold tracking-tight mb-2">
+                    My Projects
+                </h1>
+                <p
+                    class="mb-12 text-center text-white/60 max-w-150 mx-auto text-sm leading-relaxed"
+                >
+                    A curated showcase of my development projects, highlighting
+                    the tech stack, time frame, and key features.
+                </p>
+                <ul class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+                    {
+                        projects.map((item) => (
+                            <li class="group flex flex-col justify-between rounded-xl border border-white/5 bg-neutral-900/40 p-6 backdrop-blur-md transition-all duration-500 hover:border-primary/40 hover:bg-neutral-900/60 hover:shadow-[0_0_30px_-5px_rgba(134,239,172,0.15)] hover:-translate-y-1">
+                                <div class="flex flex-col gap-6">
+                                    <div class="w-full aspect-16/10 overflow-hidden rounded-lg border border-white/5 bg-neutral-950">
+                                        <img
+                                            src={item.link}
+                                            alt={item.title}
+                                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                        />
+                                    </div>
+                                    <div>
+                                        <h3 class="text-xl font-bold text-white/90 group-hover:text-primary transition-colors duration-300">
+                                            {item.title}
+                                        </h3>
+                                        <p class="text-xs text-primary mono-accent mt-1">
+                                            {item.time}
+                                        </p>
+                                        <p class="mb-4 mt-3 text-sm text-white/70 leading-relaxed">
+                                            {item.description}
+                                        </p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <hr class="border-white/5 my-4" />
+                                    <div class="flex flex-wrap gap-2">
+                                        {item.tech.split(",").map((tech) => (
+                                            <span class="px-2.5 py-1 text-[11px] font-medium rounded-md bg-neutral-900/80 text-white/70 border border-white/5 mono-accent hover:border-primary/40 transition-colors duration-200">
+                                                {tech.trim()}
+                                            </span>
+                                        ))}
+                                    </div>
+                                </div>
+                            </li>
+                        ))
+                    }
+                </ul>
+            </div>
+        </div>
+    </main>
 </Layout>

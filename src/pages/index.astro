@@ -4,6 +4,7 @@ import Download from "../assets/Download.astro";
 import Github from "../assets/Github.astro";
 import Linkedin from "../assets/Linkedin.astro";
 import Layout from "../layouts/Layout.astro";
+import cvUrl from "../assets/CV.pdf?url";
 import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/starwind/tooltip";
 ---
 
@@ -38,7 +39,7 @@ import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/starwind/t
                         modern web technologies.
                     </p>
                     <div class="flex flex-col items-center gap-8 xl:flex-row">
-                        <a href="/CV.pdf" download="CV.pdf">
+                        <a href={cvUrl} download="CV.pdf" data-astro-reload>
                             <Button
                                 variant="outline"
                                 class="flex items-center gap-2 rounded-full uppercase border-primary text-primary hover:bg-primary hover:text-black font-semibold tracking-wider text-xs transition-all duration-300 hover:scale-105"

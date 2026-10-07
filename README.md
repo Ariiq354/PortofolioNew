@@ -1,48 +1,57 @@
-# Astro Starter Kit: Basics
+# Portofolio Ariiq
+
+Website portofolio dengan Astro, Tailwind CSS, dan Starwind UI. Semua halaman
+dibangun menjadi HTML static di folder `dist/` untuk di-host di Cloudflare Pages.
+
+## Pengembangan lokal
+
+Gunakan Node.js 24 dan Bun 1.4.2.
 
 ```sh
-bun create astro@latest -- --template basics
+bun install --frozen-lockfile
+bun run dev
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+Server pengembangan tersedia di `http://localhost:4321`.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+| Perintah | Fungsi |
+| --- | --- |
+| `bun run dev` | Menjalankan server pengembangan |
+| `bun run build` | Menghasilkan website static di `dist/` |
+| `bun run preview` | Memeriksa hasil build secara lokal |
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+## Deploy ke Cloudflare Pages
 
-## 🚀 Project Structure
+1. Push repository ke GitHub atau GitLab.
+2. Buka dashboard Cloudflare → **Workers & Pages** → **Create application** →
+   **Pages** → **Import an existing Git repository**.
+3. Pilih repository dan branch produksi, lalu gunakan konfigurasi berikut:
 
-Inside of your Astro project, you'll see the following folders and files:
+   | Pengaturan | Nilai |
+   | --- | --- |
+   | Framework preset | Astro |
+   | Build command | `bun install --frozen-lockfile && bun run build` |
+   | Build output directory | `dist` |
+   | Root directory | Kosongkan (root repository) |
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+4. Tambahkan environment variable untuk **Production** dan **Preview**:
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+   | Variable | Nilai |
+   | --- | --- |
+   | `NODE_VERSION` | `24` |
+   | `BUN_VERSION` | `1.4.2` |
+   | `SKIP_DEPENDENCY_INSTALL` | `true` |
 
-## 🧞 Commands
+   Instalasi dependency dijalankan oleh build command menggunakan `bun.lock`,
+   sehingga versi dependency mengikuti lockfile repository.
 
-All commands are run from the root of the project, from a terminal:
+5. Klik **Save and Deploy**. Cloudflare akan memberikan URL `*.pages.dev` dan
+   melakukan build ulang setiap ada push ke branch produksi.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `bun install`             | Installs dependencies                            |
-| `bun dev`             | Starts local dev server at `localhost:4321`      |
-| `bun build`           | Build your production site to `./dist/`          |
-| `bun preview`         | Preview your build locally, before deploying     |
-| `bun astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `bun astro -- --help` | Get help using the Astro CLI                     |
+Halaman yang dihasilkan: `/`, `/work`, `/resume`, dan `/contact`. Navigasi,
+tabs, dan tooltip menggunakan JavaScript di browser. Tombol **Email Me** membuka
+aplikasi email pengunjung melalui `mailto:`. File CV di `src/assets/CV.pdf`
+ikut dibundel ke output build untuk diunduh dari halaman utama.
 
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Dokumentasi: [Astro di Cloudflare Pages](https://developers.cloudflare.com/pages/framework-guides/deploy-an-astro-site/)
+dan [konfigurasi build environment](https://developers.cloudflare.com/pages/configuration/build-image/).

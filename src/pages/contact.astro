@@ -28,9 +28,9 @@ const info = [
     <main class="py-12 xl:py-24">
         <div class="container mx-auto">
             <div class="flex flex-col gap-12 xl:flex-row">
-                <!-- Form Section -->
+                <!-- Email Section -->
                 <div class="order-2 xl:order-0 xl:w-[54%]">
-                    <form
+                    <div
                         class="flex flex-col gap-6 rounded-2xl border border-white/5 bg-neutral-900/60 p-8 xl:p-10 backdrop-blur-md"
                     >
                         <h2 class="text-4xl font-bold text-primary">
@@ -39,39 +39,25 @@ const info = [
                         <p class="text-white/60 text-sm leading-relaxed">
                             I'd love to hear from you! Whether you have a
                             question, a project in mind, or just want to say
-                            hello, feel free to get in touch. I'll get back to
-                            you as soon as possible.
+                            hello, send me an email. I'll get back to you as soon
+                            as possible.
                         </p>
 
-                        <div class="grid grid-cols-1 gap-6">
-                            <input
-                                name="name"
-                                placeholder="Name"
-                                class="bg-input/60 border border-border rounded-lg px-4 py-3 text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300 outline-none text-sm"
-                            />
-
-                            <input
-                                name="email"
-                                type="email"
-                                placeholder="Email Address"
-                                class="bg-input/60 border border-border rounded-lg px-4 py-3 text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300 outline-none text-sm"
-                            />
-                            <textarea
-                                name="message"
-                                rows="4"
-                                placeholder="Message"
-                                class="bg-input/60 border border-border rounded-lg px-4 py-3 text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300 outline-none text-sm"
-                            ></textarea>
-                        </div>
-
                         <Button
-                            type="submit"
+                            href="mailto:m.ariiq.abdillah@gmail.com"
                             variant="primary"
-                            class="max-w-40 rounded-full text-black font-semibold hover:scale-105 transition-all duration-300"
+                            class="max-w-40 rounded-full hover:scale-105 transition-all duration-300"
                         >
-                            Send Message
+                            Email Me
                         </Button>
-                    </form>
+                        <p class="text-sm text-muted-foreground">
+                            This opens your email app. You can also email me at
+                            <a
+                                href="mailto:m.ariiq.abdillah@gmail.com"
+                                class="text-primary underline underline-offset-4 break-all"
+                            >m.ariiq.abdillah@gmail.com</a>.
+                        </p>
+                    </div>
                 </div>
 
                 <!-- Contact Info Section -->
